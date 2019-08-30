@@ -17,7 +17,6 @@ Using the storage datasource for the creation of a server:
 ```hcl
 data "gridscale_storage" "storagename"{
 	name = "terraform-storage"
-	capacity = 10
 }
 
 resource "gridscale_server" "servername"{
