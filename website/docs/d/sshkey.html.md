@@ -15,12 +15,12 @@ Get the id of an sshkey resource. This can be used to link sshkeys to a storage 
 Using the sshkey datasource for the creation of a storage:
 
 ```hcl
-resource "gridscale_sshkey" "sshkey-john"{
+data "gridscale_sshkey" "sshkey-john"{
 	name = "john's computer"
 	sshkey = "an ssh public key"
 }
 
-resource "gridscale_sshkey" "sshkey-jane"{
+data "gridscale_sshkey" "sshkey-jane"{
 	name = "jane's computer"
 	sshkey = "an ssh public key"
 }
@@ -30,8 +30,8 @@ resource "gridscale_storage" "storagename"{
 	capacity = 10
 	template {
 		sshkeys = [
-		    "${gridscale_sshkey.sshkey-john.id}",
-		    "${gridscale_sshkey.sshkey-jane.id}"
+		    "${data.gridscale_sshkey.sshkey-john.id}",
+		    "${data.gridscale_sshkey.sshkey-jane.id}
 		]
 		template_uuid = "4db64bfc-9fb2-4976-80b5-94ff43b1233a"
 	}
